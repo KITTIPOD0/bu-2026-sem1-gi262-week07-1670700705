@@ -103,7 +103,10 @@ namespace Assignment
             {
                 if (array[i] == target)
                 {
-                    if (first == -1) first = i;
+                    if (first == -1)
+                    {
+                        first = i;
+                    }
                     last = i;
                 }
             }
@@ -114,17 +117,19 @@ namespace Assignment
 
         public int AS02_FindMaxLessThan(int[] array, int target)
         {
-            int result = -1;
+            int value = -1;
+            bool hasFound = false;
 
             for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] < target && array[i] > result)
+                if (array[i] < target && (!hasFound||array[i] > value))
                 {
-                    result = array[i];
+                    value = array[i];
+                    hasFound = true;
                 }
             }
 
-            return result;
+            return value;
         }
 
         public int[] AS03_FindRange(int[] array, int min, int max)
